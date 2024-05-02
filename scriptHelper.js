@@ -81,9 +81,19 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     let fuelStatus = document.getElementById("fuelStatus");
     let cargoStatus = document.getElementById("cargoStatus");
 
+    if (Number(fuelLevel) >= 10000 && Number(cargoLevel) < 10000) {
+    
+        launchStatus.innerHTML = `Shuttle is Ready for Launch`
+        launchStatus.style.color =  "green";
+        list.style.visibility = "visible";
+    }
+  
+
     if (Number(fuelLevel) < 10000) {
         fuelStatus.innerHTML = `Fuel level too low for launch`;
+    
         launchStatus.innerHTML = `Shuttle Not Ready for Launch`
+        launchStatus.style.color =  "red";
         list.style.visibility = "visible";
     } else {
         fuelStatus.innerHTML = `Fuel level high enough for launch`;
@@ -93,22 +103,15 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     
     if (Number(cargoLevel) > 10000) {
         cargoStatus.innerHTML = `Cargo mass too heavy for launch`
+    
         launchStatus.innerHTML = `Shuttle Not Ready for Launch`
+        launchStatus.style.color =  "red";
         list.style.visibility = "visibile";
     } else {
         cargoStatus.innerHTML = `Cargo mass low enough for launch`
         list.style.visibility = "visibile";
     }
         
-    
-    if (Number(fuelLevel) > 10000 && Number(cargoLevel) < 10000) {
-        launchStatus.innerHTML = `Shuttle is ready for launch`
-        list.style.visibility = "visible";
-    }
-  
-    
-    
-    // list.style.visibility = "visibile";
  
  };
  
